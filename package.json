@@ -1,0 +1,17 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "<h1>Node with docker project</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
+}
