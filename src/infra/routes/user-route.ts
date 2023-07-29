@@ -1,16 +1,19 @@
 import { Router } from 'express';
-import { container } from 'tsyringe';
-import { UserController } from '../../presentation/controllers/user-controller';
+import { IUserController } from '../../presentation/controllers/interfaces/i-user-controller';
 
-export const userRoute = Router();
+export class UserRoute {
+    userRoute = Router();
+
+    constructor(private userController: IUserController) {
+        this.userRoute.get('/getUsers', async (req, res) => {        
+            res.send(await this.userController.getUsers());
+        });
+        
+        this.userRoute.post('/createUser', async (req, res) => {        
+            res.send(await this.userController.createUser(req.body));
+        });
+    }
+}
 
 
-userRoute.get('/getUser', async (req, res) => {
-    const userController = container.resolve(UserController);
-    res.send(await userController.getUsers());
-});
-
-// userRoute.post('/createUser', async (req, res) => {
-//     res.send(await userController.createUser(req));
-// });
 
