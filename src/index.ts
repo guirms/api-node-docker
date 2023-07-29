@@ -1,6 +1,8 @@
+import 'reflect-metadata'
 import { config } from 'dotenv';
 import express from 'express';
-import { userRoute } from './routes/user-route';
+import { userRoute } from './infra/routes/user-route';
+import "./infra/cross-cutting/native-injector" 
 
 config();
 

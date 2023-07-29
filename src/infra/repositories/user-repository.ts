@@ -1,7 +1,7 @@
-import { IGetUsersRepository } from "../../controllers/get-users/protocols";
-import { User } from "../../models/user";
+import { User } from "../../domain/models/user";
+import { IUserRepository } from "./interfaces/i-user-repository";
 
-export class MongoGetUsersRepository implements IGetUsersRepository {
+export class UserRepository implements IUserRepository {
   async getUsers(): Promise<User[]> {
     return [
         {
