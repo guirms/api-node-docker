@@ -1,7 +1,7 @@
 
 export interface HttpResponse<T> {
     statusCode: HttpStatusCode;
-    body: T | string;
+    body: T | string | unknown;
 }
 
 export enum HttpStatusCode {
