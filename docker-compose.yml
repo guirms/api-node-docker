@@ -21,8 +21,9 @@ services:
     ports:
       - 27017:27017
     restart: always
-    env_file:
-      - ./docker-env/db.env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
     networks:
       - backend
 
@@ -41,4 +42,3 @@ volumes:
 
 networks:
   backend:
-    driver: bridge

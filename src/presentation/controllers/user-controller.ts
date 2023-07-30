@@ -8,7 +8,7 @@ import { User } from "../../domain/models/user";
 @injectable()
 export class UserController implements IUserController {
     constructor(
-        @inject("UserRepository")
+        @inject('UserRepository')
         private readonly userRepository: IUserRepository) { }
 
     public async getUsers(): Promise<HttpResponse<User[]>> {

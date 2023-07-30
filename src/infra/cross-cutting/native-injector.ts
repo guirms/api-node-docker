@@ -6,7 +6,7 @@ export const NativeInjector = {
 
     registerContainers(): void {
         container.registerSingleton<IUserRepository>(
-            "UserRepository",
+            'UserRepository',
             UserRepository
         );
     }

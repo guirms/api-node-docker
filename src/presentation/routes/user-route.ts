@@ -6,7 +6,7 @@ export class UserRoute {
 
     constructor(private userController: IUserController) {
         this.userRoute.get('/teste', async (req, res) => {        
-            res.send("Test done!");
+            res.send('Test done!');
         });
 
         this.userRoute.get('/getUsers', async (req, res) => {        

@@ -9,7 +9,7 @@ export class UserRepository implements IUserRepository {
 
   async getUsers(): Promise<User[]> {
     const users = await MongoContext.db
-      .collection<Omit<User, 'id'>>("users")
+      .collection<Omit<User, 'id'>>('users')
       .find({})
       .toArray();
 
@@ -21,9 +21,9 @@ export class UserRepository implements IUserRepository {
 
   async createUser(createUserRequest: CreateUserRequest): Promise<string> {
     await MongoContext.db
-      .collection("users")
+      .collection('users')
       .insertOne(createUserRequest);
 
-    return "User successfully created";
+    return 'User successfully created';
   }
 }
