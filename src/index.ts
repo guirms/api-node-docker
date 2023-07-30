@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 import express from 'express';
 import "./infra/cross-cutting/native-injector"
 import { MongoContext } from './infra/database/mongo-context';
-import { UserRoute } from './infra/routes/user-route';
+import { UserRoute } from './presentation/routes/user-route';
 import { NativeInjector } from './infra/cross-cutting/native-injector';
 import { UserController } from './presentation/controllers/user-controller';
 import { container } from 'tsyringe';

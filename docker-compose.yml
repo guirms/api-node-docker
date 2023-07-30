@@ -1,14 +1,44 @@
-version: "3.7"
+# version: "3.8"
+# services:
+#   mongodb_container:
+#     image: mongo:latest
+#     environment:
+#       MONGO_INITDB_ROOT_USERNAME: root
+#       MONGO_INITDB_ROOT_PASSWORD: password
+#     ports:
+#       - 27017:27017
+#     volumes:
+#       - mongodb_data_container:/data/db
+
+
+version: '3.8'
+
 services:
-  mongodb_container:
+  mongodb_container: 
     image: mongo:latest
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
-    ports:
-      - 27017:27017
     volumes:
       - mongodb_data_container:/data/db
+    ports:
+      - 27017:27017
+    restart: always
+    env_file:
+      - ./docker-env/db.env
+    networks:
+      - backend
+
+  api_container:
+    depends_on: 
+      - mongodb_container
+    image: api-node
+    ports:
+      - "8000:8000"
+    restart: always
+    networks:
+      - backend
 
 volumes:
   mongodb_data_container:
+
+networks:
+  backend:
+    driver: bridge
